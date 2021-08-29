@@ -1,0 +1,21 @@
+{
+    "identifier": "seriouslyawesome.rubocop-for-nova",
+    "name": "RuboCop",
+    "organization": "SeriouslyAwesome",
+    "description": "Complete, configurable RuboCop support for Nova.",
+    "version": "0.1.0",
+    "categories": ["issues", "formatters"],
+
+    "main": "main.js",
+
+    "activationEvents": [
+        "onLanguage:ruby"
+    ],
+
+    "entitlements": {
+        "process": true
+    },
+
+    "config": "./configuration-options.json",
+    "configWorkspace": "./configuration-options.json",
+}

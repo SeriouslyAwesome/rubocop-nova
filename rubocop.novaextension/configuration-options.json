@@ -1,0 +1,30 @@
+[
+  {
+    "title": "Auto-correction Options",
+    "type": "section",
+    "children": [
+      {
+        "key": "seriouslyawesome.rubocop.autocorrect",
+        "title": "Auto-correct on Save",
+        "link": "https://docs.rubocop.org/rubocop/usage/auto_correct.html#safe-auto-correct",
+        "type": "enum",
+        "radio": true,
+        "values": [
+          ["", "Disable"],
+          ["--fix-layout", "Layout Cops Only"],
+          ["--auto-correct", "Safe Cops Only"],
+          ["--auto-correct-all", "All Cops"]
+        ],
+        "default": "",
+      },
+      {
+        "key": "seriouslyawesome.rubocop.disable-uncorrectable",
+        "title": "Silence Uncorrectable Offenses",
+        "description": "Generate # rubocop:todo comments in the code to stop the reporting of offenses that could not be corrected automatically. Requires 'Auto-correct on Save' to be enabled. Requires RuboCop v0.73.0 or higher.",
+        "link": "https://docs.rubocop.org/rubocop/usage/auto_correct.html#generating-comments",
+        "type": "boolean",
+        "default": false
+      },
+    ]
+  }
+]
