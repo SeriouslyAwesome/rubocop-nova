@@ -1,24 +1,23 @@
 {
-    "identifier": "john-ellis.rubocop-nova",
-    "name": "RuboCop",
-    "organization": "John Ellis",
-    "description": "Complete, configurable RuboCop support for Nova.",
-    "version": "0.1.0",
-    "categories": ["issues", "formatters"],
-    "bugs": "https://github.com/SeriouslyAwesome/rubocop-nova/issues",
-    "repository": "https://github.com/SeriouslyAwesome/rubocop-nova",
-
-
-    "main": "main.js",
-
-    "activationEvents": [
-        "onLanguage:ruby"
-    ],
-
-    "entitlements": {
-        "process": true
-    },
-
-    "config": "./configuration-options.json",
-    "configWorkspace": "./configuration-options.json",
+  "identifier": "john-ellis.rubocop-nova",
+  "name": "RuboCop",
+  "organization": "John Ellis",
+  "license": "MIT",
+  "description": "Complete, configurable RuboCop support for Nova.",
+  "version": "0.1.0",
+  "categories": [
+    "issues",
+    "formatters"
+  ],
+  "bugs": "https://github.com/SeriouslyAwesome/rubocop-nova/issues",
+  "repository": "https://github.com/SeriouslyAwesome/rubocop-nova",
+  "main": "main.js",
+  "activationEvents": [
+    "onLanguage:ruby"
+  ],
+  "entitlements": {
+    "process": true
+  },
+  "config": "configuration-options.json",
+  "configWorkspace": "configuration-options.json"
 }

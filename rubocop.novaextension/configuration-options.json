@@ -3,12 +3,15 @@
     "key": "john-ellis.rubocop-nova.base-command",
     "title": "Command",
     "type": "string",
+    "placeholder": "rubocop",
+    "link": "https://docs.rubocop.org/rubocop/installation.html",
     "description": "The base command used to invoke RuboCop, depending on your installation. Additional arguments and flags will be ignored. Examples:\n-\"bundle exec rubocop\" - Use when you have RuboCop in your project's Gemfile\n-\"bin/rubocop\" - Use when you've generated a binstubs for using RuboCop with Spring\n-\"rubocop\" - For a global installation of the RuboCop gem (default)",
     "default": "rubocop"
   },
   {
     "title": "Auto-correction Options",
     "type": "section",
+    "link": "https://docs.rubocop.org/rubocop/usage/auto_correct.html",
     "children": [
       {
         "key": "john-ellis.rubocop-nova.autocorrect",
@@ -17,12 +20,24 @@
         "type": "enum",
         "radio": true,
         "values": [
-          ["", "Disable"],
-          ["--fix-layout", "Layout Cops Only"],
-          ["--auto-correct", "Safe Cops Only"],
-          ["--auto-correct-all", "All Cops"]
+          [
+            false,
+            "Disable"
+          ],
+          [
+            "--fix-layout",
+            "Layout Cops Only"
+          ],
+          [
+            "--auto-correct",
+            "Safe Cops Only"
+          ],
+          [
+            "--auto-correct-all",
+            "All Cops"
+          ]
         ],
-        "default": "",
+        "default": false
       },
       {
         "key": "john-ellis.rubocop-nova.disable-uncorrectable",
@@ -31,7 +46,7 @@
         "link": "https://docs.rubocop.org/rubocop/usage/auto_correct.html#generating-comments",
         "type": "boolean",
         "default": false
-      },
+      }
     ]
   }
 ]

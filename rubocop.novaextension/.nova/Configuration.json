@@ -1,8 +1,0 @@
-{
-  "editor.default_syntax" : "ruby",
-  "myextension.file-type" : "None",
-  "rubocop-for-nova.autocorrect-on-save" : false,
-  "rubocop-for-nova.disable-uncorrectable" : false,
-  "john-ellis.rubocop-nova.autocorrect" : "",
-  "workspace.color" : 0
-}
