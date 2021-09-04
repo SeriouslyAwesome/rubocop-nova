@@ -12,13 +12,9 @@ Let's get started!
 🎈 Include a brief description of the features your extension provides. For example:
 -->
 
-**RuboCop for Nova** automatically lints all open files, then reports errors and warnings in Nova's **Issues** sidebar and the editor gutter:
+# RuboCop for Nova
 
-<!--
-🎈 It can also be helpful to include a screenshot or GIF showing your extension in action:
--->
-
-![](https://nova.app/images/en/dark/editor.png)
+**RuboCop for Nova** automatically lints all open files, then reports errors and warnings in Nova's **Issues** sidebar and the editor gutter. Issues can even be automatically fixed or silenced with configurable `--auto-correct` options (see Configuration section below).
 
 ## Requirements
 
@@ -28,21 +24,27 @@ Let's get started!
 
 RuboCop for Nova requires some additional tools to be installed on your Mac:
 
-- [Node.js 8.2.0](https://nodejs.org) and NPM 5.2.0 or newer
+- [RuboCop 0.73.0](https://rubocop.org) or newer
 
 <!--
 ✨ Providing tips, tricks, or other guides for installing or configuring external dependencies can go a long way toward helping your users have a good setup experience:
 -->
 
-> To install the current stable version of Node, click the "Recommended for Most Users" button to begin the download. When that completes, double-click the **.pkg** installer to begin installation.
+_RuboCop can be installed a few different ways, so please check [the documentation](https://docs.rubocop.org/rubocop/1.20/installation.html) on the best method for your environment and/or project._
 
-### Configuration
+## Configuration
+
+This extension supports the following configuration options:
+
+- **BYOR (Bring Your Own Rubocop):** - Specify your preferred command for running RuboCop, whether it's from a binstub (`bin/rubocop`), your project's Gemfile (`bundle exec rubocop`), or a global installation (`rubocop`).
+- **Auto-correct, 3 Ways:** - Specify whether RuboCop should automatically fix offenses, and at which level of safety: Layout Cops Only, Safe Cops Only, or All Cops.
+- **Disable Un-correctable Offenses:** - Allow RuboCop to add `rubocop:todo` comments to lines of code that could not be auto-corrected to quiet instances without ignoring them.
 
 <!--
 🎈 If your extension offers global- or workspace-scoped preferences, consider pointing users toward those settings. For example:
 -->
 
-To configure global preferences, open **Extensions → Extension Library...** then select RuboCop for Nova's **Preferences** tab.
+To configure global preferences, open **Extensions → Extension Library...** then select RuboCop's **Preferences** tab.
 
 You can also configure preferences on a per-project basis in **Project → Project Settings...**
 

@@ -1,38 +1,20 @@
 const RuboCopProcess = require("./RuboCopProcess");
 
-// exports.activate = function() {
-//     nova.workspace.onDidAddTextEditor((editor) => {
-//       // Do work when the extension is activated
-//       if (editor.document.syntax !== "ruby") return;
-//
-//       const file = editor.document.uri
-//       const RuboCop = new RubocopProcess(file, []);
-//
-//       RuboCop.run();
-//
-//       editor.onWillSave(editor => RuboCop.run(););
-//       editor.onDidStopChanging(editor => RuboCop.run(););
-//       editor.document.onDidChangeSyntax(document => {
-//         if (editor.document.syntax !== "ruby") RuboCop.run(););
-//       });
-//
-//     });
-//
-// }
-//
-// exports.deactivate = function() {
-//     // Clean up state before the extension is deactivated
-// }
-
-
+/** Primary interface for interacting with RuboCop from within Nova. **/
 class RuboCop {
+  /** Initialize RuboCop **/
   constructor() {
-    this.process = new RuboCopProcess()
+    this.baseCommand = this.getConfig("SeriouslyAwesome.rubocop-nova.base-command");
+    this.process = new RuboCopProcess(this.baseCommand)
     this.issueCollection = new IssueCollection();
-    this.commandArguments = this.argumentsFromConfig();
     this.version = this.process.version;
   }
 
+  /**
+   * Calls the RuboCop command on appropriate files and returns a collection of Issue instances for Nova to present to the user.
+   * @param {Editor} - An instance of the Nova text editor
+   * @return {Array} - An array of Nova Issue instances
+   */
   provideIssues(editor) {
     const file = editor.document.path;
     const options = this.argumentsFromConfig();
@@ -49,15 +31,16 @@ class RuboCop {
     });
   }
 
+  /**
+   * Determines primary command arguments to pass to RuboCop based on the user's Nova preferences.
+   * Available configuration options are determined in ./configuration-options.json.
+   * @return {Array} - An array of command argument flags
+   */
   argumentsFromConfig() {
-    // Available options are determined in ./configuration-options.json:
-    // ["", "--fix-layout", "--auto-correct", "--auto-correct-all"]
-    const autoCorrect = this.config("seriouslyawesome.rubocop.autocorrect");
-
-    // Boolean. Requires the above to be set to a non-empty value.
-    const disableUncorrectable = this.config("seriouslyawesome.rubocop.disable-uncorrectable");
-
     let args = [];
+
+    const autoCorrect = this.getConfig("SeriouslyAwesome.rubocop-nova.autocorrect");
+    const disableUncorrectable = this.getConfig("SeriouslyAwesome.rubocop-nova.disable-uncorrectable");
 
     if (autoCorrect) {
       args.push(autoCorrect);
@@ -67,7 +50,12 @@ class RuboCop {
     return args;
   }
 
-  config(name) {
+  /**
+   * Fetches user preferences from Nova, with workspace preferences taking priority over general extension preferences.
+   * @param {String} name - The name of the configuration setting to retrieve, as labelled in ./configuration-options.json
+   * @return {(String|Boolean)} - The value of the user preference from Nova.
+   */
+  getConfig(name) {
     const workspaceConfig = nova.workspace.config.get(name) ? nova.workspace.config.get(name) : null;
     const extensionConfig = nova.config.get(name);
 
