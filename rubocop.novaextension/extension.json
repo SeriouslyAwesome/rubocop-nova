@@ -1,7 +1,7 @@
 {
     "identifier": "john-ellis.rubocop-nova",
     "name": "RuboCop",
-    "organization": "SeriouslyAwesome",
+    "organization": "John Ellis",
     "description": "Complete, configurable RuboCop support for Nova.",
     "version": "0.1.0",
     "categories": ["issues", "formatters"],
