@@ -4,7 +4,7 @@ const RuboCopProcess = require("./RuboCopProcess");
 class RuboCop {
   /** Initialize RuboCop **/
   constructor() {
-    this.baseCommand = this.getConfig("SeriouslyAwesome.rubocop-nova.base-command");
+    this.baseCommand = this.getConfig("john-ellis.rubocop-nova.base-command");
     this.process = new RuboCopProcess(this.baseCommand)
     this.issueCollection = new IssueCollection();
     this.version = this.process.version;
@@ -39,8 +39,8 @@ class RuboCop {
   argumentsFromConfig() {
     let args = [];
 
-    const autoCorrect = this.getConfig("SeriouslyAwesome.rubocop-nova.autocorrect");
-    const disableUncorrectable = this.getConfig("SeriouslyAwesome.rubocop-nova.disable-uncorrectable");
+    const autoCorrect = this.getConfig("john-ellis.rubocop-nova.autocorrect");
+    const disableUncorrectable = this.getConfig("john-ellis.rubocop-nova.disable-uncorrectable");
 
     if (autoCorrect) {
       args.push(autoCorrect);

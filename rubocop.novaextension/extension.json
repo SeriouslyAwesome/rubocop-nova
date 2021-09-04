@@ -1,5 +1,5 @@
 {
-    "identifier": "SeriouslyAwesome.rubocop-nova",
+    "identifier": "john-ellis.rubocop-nova",
     "name": "RuboCop",
     "organization": "SeriouslyAwesome",
     "description": "Complete, configurable RuboCop support for Nova.",

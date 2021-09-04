@@ -3,6 +3,6 @@
   "myextension.file-type" : "None",
   "rubocop-for-nova.autocorrect-on-save" : false,
   "rubocop-for-nova.disable-uncorrectable" : false,
-  "SeriouslyAwesome.rubocop-nova.autocorrect" : "",
+  "john-ellis.rubocop-nova.autocorrect" : "",
   "workspace.color" : 0
 }
