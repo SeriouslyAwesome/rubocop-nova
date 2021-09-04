@@ -1,4 +1,8 @@
+/** Maps JSON output from RuboCop into instances of the Issue class provided by Nova */
 class RuboCopOffense {
+  /**
+   * @param {JSONObject} offense - A single element from the `offenses` JSON array provided by RuboCop.
+   */
   constructor(offense) {
     this.severity = offense["severity"];
     this.cop = offense["cop_name"];
@@ -9,6 +13,10 @@ class RuboCopOffense {
     this.endLine = offense["location"]["last_line"];
   }
 
+  /**
+   * Converts the RuboCop offense into a Nova Issue
+   * @return {Issue} - The Nova Issue instance
+   */
   toNovaIssue() {
     const issue = new Issue();
 
@@ -24,6 +32,10 @@ class RuboCopOffense {
     return issue;
   }
 
+  /**
+   * Mapping interface between RuboCop severity values (keys) and Nova Issue severity values (values).
+   * @return {Object}
+   */
   get _issueSeverityOptions() {
     const severityOptions = {
       "fatal": IssueSeverity.Error,
