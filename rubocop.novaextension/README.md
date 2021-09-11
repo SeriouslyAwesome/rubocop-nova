@@ -14,7 +14,7 @@ Let's get started!
 
 # RuboCop for Nova
 
-**RuboCop for Nova** automatically lints all open files, then reports errors and warnings in Nova's **Issues** sidebar and the editor gutter. Issues can even be automatically fixed or silenced with configurable `--auto-correct` options (see Configuration section below).
+**RuboCop for Nova** automatically lints all open Ruby files, then reports errors and warnings in Nova's **Issues** sidebar and the editor gutter. Issues can even be automatically fixed or silenced with configurable `--auto-correct` options (see Configuration section below).
 
 ## Requirements
 

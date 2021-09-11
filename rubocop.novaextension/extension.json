@@ -4,7 +4,7 @@
   "organization": "John Ellis",
   "license": "MIT",
   "description": "Complete, configurable RuboCop support for Nova.",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "categories": [
     "issues",
     "formatters"
