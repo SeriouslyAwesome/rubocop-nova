@@ -21,6 +21,7 @@ class RuboCop {
 
     let issues = [];
 
+    // Run RuboCop and add issues to Nova's Issues sidebar.
     this.process.inspect(file, options).then((offenses) => {
       offenses.forEach(offense => {
         issues.push(offense.toNovaIssue());
@@ -28,6 +29,16 @@ class RuboCop {
 
       this.issueCollection.set(editor.document.uri, issues);
       return issues;
+    });
+
+    // Add a listener to remove issues from the sidebar when files are closed.
+    editor.onDidDestroy(destroyedEditor => {
+      // Check to see if the same file is open in another tab first:
+      let editorWithSameFile = nova.workspace.textEditors.find(editor => {
+        return editor.document.uri === destroyedEditor.document.uri;
+      });
+
+      if (!editorWithSameFile) this.issueCollection.remove(destroyedEditor.document.uri);
     });
   }
 
