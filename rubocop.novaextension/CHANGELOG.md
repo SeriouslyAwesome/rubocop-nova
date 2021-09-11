@@ -1,5 +1,12 @@
 # Changelog
 
+## 0.1.1 - 2021-09-11
+
+### Fixed
+
+- Fixed a bug where issues for closed files remained in the sidebar.
+- Fixed a bug where auto-corrected offenses would briefly appear as issues then quickly disappear after auto-correction.
+
 ## 0.1.0 - 2021-09-04
 
 ### Added
