@@ -72,8 +72,9 @@ class RuboCopProcess {
     try {
       const data = JSON.parse(output);
       const rawOffenses = data["files"][0]["offenses"];
+      const unCorrectedOffenses = rawOffenses.filter(offense => !offense["corrected"]);
 
-      this.offenses = rawOffenses.map(rawOffense => new RuboCopOffense(rawOffense));
+      this.offenses = unCorrectedOffenses.map(offenseData => new RuboCopOffense(offenseData));
 
       return this.offenses
     } catch(error) {
